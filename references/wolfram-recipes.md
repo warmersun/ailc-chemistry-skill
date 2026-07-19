@@ -127,6 +127,30 @@ MoleculePlot[mol, highlight,
 
 Without the library, pass SMARTS to `MoleculePattern` (see auto-detect recipe).
 
+### Detect vs visual highlight (critical — learner correction)
+
+Library patterns are **right for detection**; they are often **too wide for “only the group core” visuals**.
+
+- **`MoleculePlot[mol, pattern]` paints the entire matched subgraph**, including `Atom[_]` attachment wildcards.
+- Example: library `carbonyl` is the correct **carbonyl-carbon environment**:
+
+  ```wl
+  carbonyl = MoleculePattern[
+    {Atom[_], "C", "O", Atom[_]},
+    {Bond[{1, 2}], Bond[{2, 3}, "Double"], Bond[{2, 4}]}
+  ];
+  ```
+
+  On **urea** that match is N–C(=O)–N, so a direct highlight lights **both nitrogens + C=O**, which looks wrong when the learner asked for the **central carbonyl (C=O only)**.
+
+| Goal | Use |
+|------|-----|
+| Detect / teach “has a carbonyl carbon” | Library `carbonyl` (attachments included) — **correct pattern** |
+| Visual “highlight only C=O” | Narrow highlight: `MoleculePattern["[CX3]=[OX1]"]`, or explicit C/O atom indices + `Bond[{c,o},"Double"]` after `FindMoleculeSubstructure` |
+| Same idea for other groups | If the learner means the **core** (C=O, –OH oxygen, etc.), do not pass the full environment pattern straight into `MoleculePlot` |
+
+**Do not “fix” the library carbonyl pattern** — keep it for matching. Split **detect** from **draw core**.
+
 ### Auto-detect functional groups present (keys only)
 
 When the full plugin pattern library (**Functional-group pattern constants**) is loaded, prefer:

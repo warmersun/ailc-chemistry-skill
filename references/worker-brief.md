@@ -26,6 +26,7 @@ Do **not** load the full `ailc-chemistry` `SKILL.md` body.
 - Structures via Wolfram only; AI images labeled **modern reconstruction**.
 - If you need encyclopedia/web background: **[Grokipedia](https://grokipedia.com)** only — **not Wikipedia**.
 - The **parent** writes the learner-facing teaching prose — you do not.
+- **Highlight pitfall:** library FG patterns (e.g. `carbonyl` with two `Atom[_]` attachments) are correct for **detection**. For a visual “core only” (e.g. urea central C=O), use narrow SMARTS/`[CX3]=[OX1]` or explicit atom indices — full environment patterns paint attachments too (`wolfram-recipes.md` → Detect vs visual highlight).
 
 ## Do not
 
