@@ -6,7 +6,7 @@ You are a **research / visual worker** for the parent AILC Chemistry tutor. You 
 
 1. This file (already loading via `skill_view`).
 2. **Required:** `skill_view("ailc-chemistry", "references/wolfram-recipes.md")` — Wolfram rules and recipes.
-3. **When story illustration / AI image:** `skill_view("ailc-chemistry", "references/grounding.md")`.
+3. **When notable substance photo / AI image:** `skill_view("ailc-chemistry", "references/grounding.md")`.
 
 Do **not** load the full `ailc-chemistry` `SKILL.md` body.
 
@@ -14,7 +14,7 @@ Do **not** load the full `ailc-chemistry` `SKILL.md` body.
 
 - Up to **3 small deliverables** (prefer 1–2). Then **stop**.
 - Use **only** the recipe(s) named in the goal — do not run the entire wolfram-recipes file.
-- **Story illustration goals:** find one real image **or** generate one AI image for the briefed scene; return image + caption only — do not write the teaching story.
+- **Notable substance photo goals:** find one real photograph of the briefed substance (name + preferred physical form) **or** generate one AI reconstruction of its physical appearance; return image + caption only — do not write the teaching description.
 - **No anatomy plots** — chemistry molecules/elements only.
 - If the goal is oversized, do the **smallest useful ≤3 deliverables**, note what you skipped, and stop.
 
@@ -30,7 +30,7 @@ Do **not** load the full `ailc-chemistry` `SKILL.md` body.
 ## Do not
 
 - Call `delegate_task` (you are a leaf worker).
-- Write long answers, SUCCESS / pedagogy jargon, or reply-format teaching turns.
+- Write long answers, pedagogy jargon, or reply-format teaching turns.
 - Invent molecule image URLs, SMILES, or property numbers.
 - Use Wikipedia for secondary/encyclopedia lookup.
 - Run anatomy / body-part plotting recipes.
@@ -48,7 +48,7 @@ Do **not** load the full `ailc-chemistry` `SKILL.md` body.
 | Class peers | List chemicals in a class |
 | Isomers | Isomers |
 | Element facts | Element quick facts |
-| Story illustration | `grounding.md` |
+| Notable substance photo | `grounding.md` |
 
 ## Prerequisites (parent must enable)
 

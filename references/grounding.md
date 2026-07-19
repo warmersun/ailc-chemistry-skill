@@ -14,7 +14,7 @@ Shared by the **parent tutor** and **subagent workers**. Wolfram evaluator rules
 | Compare isomers or analogs | Side-by-side 2D plots (≤3) + short name/SMILES list |
 | Element focus | Curated Element properties; structure only if a simple allotrope/molecule helps |
 | Class survey | Up to 20 names from chemical class; plot 1–2 exemplars, not all |
-| Everyday use / history / lab scene | Real photo or labeled AI reconstruction — **not** a fake structure diagram |
+| Physical appearance of element / compound / reaction product | Real photo of the substance, or labeled AI reconstruction — **not** a fake structure diagram |
 | Same structure, larger image | Larger `ImageSize` after a successful plot |
 
 ## Structures vs illustrations
@@ -22,40 +22,42 @@ Shared by the **parent tutor** and **subagent workers**. Wolfram evaluator rules
 | Need | Tool |
 |------|------|
 | Bonds, atoms, functional groups, stereochemistry | **Wolfram** `MoleculePlot` / `MoleculePlot3D` |
-| “What does a 19th-century lab look like?” | Photo or **AI reconstruction** (labeled) |
+| “What does sulfur look like?” / “copper sulfate crystals” | Photo of the substance or **AI reconstruction** (labeled) |
 | “Show the caffeine molecule” | **Never** AI-draw the structure if Wolfram can plot it |
 
 **MUST NOT** use AI image generation as a substitute for a computed molecule plot when the learner needs a reliable structure.
 
-## Illustrating story elements
+## Illustrating notables
 
-When a teaching turn includes a **story** element (discovery, everyday scene, famous chemist, industrial plant, …), illustrate the *scene* when it helps. This is separate from structure plots.
+When a teaching turn includes a **notable** reaction or related molecule/compound, illustrate the *physical substance* when it helps. This is separate from structure plots.
 
-**Who does the work:** heavy image find/generate **SHOULD** be done by a **subagent**. The parent briefs the scene and synthesizes the returned image.
+**Who does the work:** heavy image find/generate **SHOULD** be done by a **subagent**. The parent briefs the substance (name + preferred physical form) and synthesizes the returned image.
 
 Worker paths:
 
-1. **Find** a suitable real image when one exists (museum, lab glassware photo, historical portrait).
-2. **Generate** with AI when no good real image exists — label **modern reconstruction**.
+1. **Find** a suitable real photograph of the briefed substance when one exists (sample, crystal, metal, powder, solution, clear product form).
+2. **Generate** with AI when no good real photo exists — label **modern reconstruction** of the physical appearance.
 
-Caption every image (what / how it ties to the chemistry). **MUST NOT** use a story illustration instead of a molecule plot for structural teaching.
+Caption every image (identity, what the photo shows, how it ties to the notable chemistry). **MUST NOT** use a substance photo instead of a molecule plot for structural teaching.
+
+**Do not** default to portraits, period lab scenes, or generic atmosphere shots — the image should show the element, molecule, or compound being discussed.
 
 ## AI image generation (non-structure)
 
 ### When to use
 
-- Historical figures, lab atmosphere, industrial context, sensory everyday scenes (coffee cup + plant — not the molecule graph).
-- Macro photos of crystals/minerals when a real photo search fails (label reconstruction).
+- Physical appearance of crystals, minerals, element samples, powders, solutions, or recognizable products when a real photo search fails (label reconstruction).
 
 ### When not to use
 
 - **Not in place of Wolfram molecule plots.**
 - Not as fake spectra, fake chromatograms, or unlabeled “scientific evidence.”
+- Not as historical figures, period labs, or generic lab atmosphere when a substance photo is what was briefed.
 
-### Prompt craft (chemistry-adjacent scenes)
+### Prompt craft (physical appearance)
 
-- State era/setting accurately if historical.
-- Avoid wrong glassware, modern PPE in period scenes, or impossible lab setups unless the goal is humor and labeled as such.
+- Name the substance and form accurately (e.g. yellow sulfur powder, blue copper sulfate pentahydrate crystals, gray iron metal).
+- Avoid wrong color, phase, or packaging that would mislead about the chemistry.
 - Do not ask the model to “draw accurate bond-line structures” — use Wolfram for that.
 
 ## Web encyclopedia lookup

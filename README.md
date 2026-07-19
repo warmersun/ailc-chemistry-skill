@@ -2,7 +2,7 @@
 
 **AI Learning Companion — Chemistry**: an agent skill for interactive chemistry tutoring grounded in the [Wolfram Knowledgebase](https://www.wolfram.com/knowledgebase/) via Wolfram MCP.
 
-It turns open-ended questions about molecules, functional groups, elements, and properties into **structure plots**, curated facts, isomer/class comparisons, and sticky explanations — without dumping property JSON or inventing structure image URLs.
+It turns open-ended questions about molecules, functional groups, elements, and properties into **structure plots**, curated facts, isomer/class comparisons, and notable reactions/molecules with real-world photos — without dumping property JSON or inventing structure image URLs.
 
 Molecule-plot behavior is adapted from the Chemistry chapter of the Wolfram plugin notebook `AILCBioChem.nb` (`moleculePlot`, property helpers, isomers, chemical class lists). Anatomy / biology body plots from that notebook are **out of scope**.
 
@@ -12,6 +12,7 @@ Molecule-plot behavior is adapted from the Chemistry chapter of the Wolfram plug
 - **Highlights functional groups** (named patterns or SMARTS) and lists groups found
 - Pulls **curated properties** (formula, mass, melting point, …) — not full dumps
 - Finds **isomers** and samples chemicals in a **class**
+- Grounds teaching with a **notable reaction or related molecule**, illustrated by a real substance photo when available
 - Keeps the chat **fast**: dispatch parallel Hermes sub-agents first (they inherit Wolfram + `skill_view`), then high-level framing while plots finish in the background
 - Stays honest about missing data, plot timeouts, and dual-use safety limits
 
@@ -36,7 +37,6 @@ Parent tutors from `SKILL.md`. Subagents are told (in `delegate_task` context) t
 |------------|------|
 | **Wolfram MCP** | Chemicals, elements, `Molecule` / `MoleculePlot` / `MoleculePlot3D`, properties, isomers |
 | **skills** toolset | `skill_view` for worker brief and recipes (parent and children) |
-| **made-to-stick** (optional) | Sticky storytelling technique (SUCCESS); skill still works without it |
 
 If Wolfram is unavailable, the skill falls back to careful prose and does not invent structure image URLs.
 
@@ -67,7 +67,7 @@ Typical turn shape:
 
 1. `delegate_task` fan-out (each child context mandates `skill_view` of worker-brief + wolfram-recipes)  
 2. High-level framing in plain language after the handle returns  
-3. Later synthesis in the reply format: headed sections, full sentences that gloss terms, short tables when useful, one strong structure visual, a next hook  
+3. Later synthesis in the reply format: headed sections, full sentences that gloss terms, short tables when useful, one strong structure visual, a notable beat with substance photo when available, a next hook  
 
 ## Entity / input types (Wolfram)
 
@@ -89,7 +89,7 @@ Inputs supported (aligned with plugin `moleculePlot`):
 - **Compute over guess** — structures from Wolfram when bonds and groups matter  
 - **DRY references** — WL rules only in wolfram-recipes; shared visuals/honesty in grounding; workers get a thin brief  
 - **Curate** — few strong artifacts beat long dumps  
-- **Label reconstructions** — AI images are modern impressions, never substitutes for molecule plots  
+- **Photo-first for physical appearance** — real substance photos when available; AI images labeled modern reconstructions, never substitutes for molecule plots  
 
 ## License
 

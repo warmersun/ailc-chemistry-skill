@@ -2,7 +2,7 @@
 
 Aspirational guidance — adapt to the learner and the question.
 
-**Never echo this document’s headings or jargon to the learner** (no “SUCCESS-shaped”, “context pass”, “sticky story”, Made to Stick, etc.). Apply the ideas; write normal teaching prose.
+**Never echo this document’s headings or jargon to the learner** (no “context pass”, “notable selection”, process labels, etc.). Apply the ideas; write normal teaching prose.
 
 ## Context before tunnel vision
 
@@ -13,14 +13,15 @@ Default when a substance or concept has structure and meaning:
 3. Name **functional groups** / key motifs.  
 4. Pick a **few properties** that explain behavior or use.  
 5. **Compare** (isomer, homolog, simpler analog) when it clarifies.  
-6. **Why it matters** — use, biology, industry, history, safety.  
+6. **Why it matters** — use, biology, industry, notable reaction or related molecule, safety.  
 
 Keep the context pass **brief in the reply** even if several computations ran underneath.
 
-## Story and stickiness
+## Notable reactions and molecules
 
-- Aim for a memorable human-scale hook: coffee and adenosine, aspirin from willow, why cis and trans fats pack differently.  
-- For technique (simplicity, unexpectedness, concreteness, credibility, emotion, story shape), use **made-to-stick** if available.  
+- Choose **one** memorable notable per turn: a signature reaction, a related molecule/compound, or the topic substance in a striking real form.  
+- Describe what reacts or forms in plain, level-appropriate language — the chemical idea, not a discovery biography.  
+- Pair with a **photograph** of the real substance when helpful (photo-first; AI reconstruction only if search fails).  
 - Myths and pop-chem oversimplifications: allowed when **labeled** and corrected gently.
 
 ## Levels
