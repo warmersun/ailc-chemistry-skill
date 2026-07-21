@@ -40,17 +40,24 @@ Parent tutors from `SKILL.md`. Subagents are told (in `delegate_task` context) t
 
 If Wolfram is unavailable, the skill falls back to careful prose and does not invent structure image URLs.
 
-## Install
+## Install (Hermes)
 
-Copy or clone this skill into your agent’s skills directory (name as required by your host, e.g. `ailc-chemistry`):
+Register this repo as a [Hermes skills tap](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills#publishing-a-custom-skill-tap), then install the skill. Use the `owner/repo` form — not a full GitHub URL.
 
 ```bash
-git clone https://github.com/warmersun/ailc-chemistry-skill.git
-# then link or copy into your skills path, e.g.:
-# ln -sfn /path/to/ailc-chemistry-skill ~/.grok/skills/ailc-chemistry
+hermes skills tap add warmersun/ailc-chemistry-skill
+hermes skills install warmersun/ailc-chemistry-skill/skills/ailc-chemistry --category ailc
 ```
 
-Ensure the host can load `SKILL.md` and has Wolfram MCP configured (`WolframContext`, `WolframAlpha`, `WolframLanguageEvaluator` or equivalent).
+After that, `/ailc-chemistry` is available in chat. To pick up upstream changes later:
+
+```bash
+hermes skills update ailc-chemistry
+```
+
+`tap add` only registers the source; `install` is what copies `SKILL.md` and `references/` into `~/.hermes/skills/`. Prefer the install identifier above over `hermes skills search` — custom taps are easy to miss in search (Hermes may skip GitHub when its index is available, and `--source github` can time out while scanning the large default taps).
+
+Ensure Wolfram MCP is configured (`WolframContext`, `WolframAlpha`, `WolframLanguageEvaluator` or equivalent).
 
 ## Usage
 
